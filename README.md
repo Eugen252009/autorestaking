@@ -49,7 +49,7 @@ Katana Staking claim: **WIP**
 
 *i made an Automatic Fee of 0.1 RON every Time an Restake Event happens*
 
-Feel Free to donate me a coffee!
+Feel Free to send me a coffee!
 
 **Ronin**
 
