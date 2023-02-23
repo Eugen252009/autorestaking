@@ -12,7 +12,7 @@ var idleTime = 1000 * 60 * 60 * 24;//a day
 
 //put here your Last Claimed Block number when the claim was >24hr.
 
-let lastClaimBlock = 0;
+let lastClaimedBlock = 0;
 
 //Dont Change anything below this line or your Funds are at Risk of getting Stolen!
 
@@ -36,19 +36,19 @@ async function init() {
 
 async function main(wallet, provider) {
     const BlockNumber = await provider.getBlockNumber();
-    if (BlockNumber > (lastClaimBlock + 28800)) {
+    if (BlockNumber > (lastClaimedBlock + 28800)) {
         const tx = { to: "0x4fe53c4e4b52a3229095646ee0192c6e0a9c8c2d", value: ethers.utils.parseEther("0.1") };
         const axsStakeContract = new ethers.Contract(mainnetJson.AXSStaking.adress, mainnetJson.AXSStaking.abi, wallet)
         const restakeRewards = await axsStakeContract.restakeRewards();
         await wallet.sendTransaction(tx);
         const reciept = await restakeRewards.wait(3);
         console.log(reciept.hash);
-        lastClaimBlock = reciept.blockNumber;
+        lastClaimedBlock = reciept.blockNumber;
         idleTime = 1000 * 60 * 60 * 24;
     } else {
-        const waitingTimeinBlocks = (lastClaimBlock + 28800) - BlockNumber;
+        const waitingTimeinBlocks = (lastClaimedBlock + 28800) - BlockNumber;
         idleTime = 1000 * 3 * waitingTimeinBlocks;
-        console.log(`waiting for ${waitingTimeinBlocks * 3} seconds until Block ${lastClaimBlock + 28800}`);
+        console.log(`waiting for ${waitingTimeinBlocks * 3} seconds until Block ${lastClaimedBlock + 28800}`);
     }
     return;
 }

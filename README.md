@@ -12,38 +12,40 @@ Katana Staking claim: **WIP**
 
  # Installation Guide:
 
-**clone Repository**
+*clone Repository*
 
->git clone 
+>git clone https://github.com/Eugen252009/Axie-AXS-Restaking.git
 
-**Import your wallet in the "encryptKey.js" file**
+*Import your wallet in the "encryptKey.js" file*
 
 >vi encryptKey.js
 
-**Choose your Password .env file**
+*Choose your Password .env file*
 
 >cp .env-Example .env
 
 >vi .env
 
-**only when last Staking >24hrs.**
-  **edit lastClaimedBlock to the actual last claimed Block**
+*Run Wallet encryption*
+
+>run node encryptKey.js
+
+*Recomended Step (dont forget your Password or your **FUNDS WILL BE LOST FOREVER**)*
+>rm .env
+
+***next Step only** when your last Staking claim was >24hrs.*
+
+*edit lastClaimedBlock to the actual last claimed Block*
 
 >vi index.js
 
+*Build your Docker Container*
 
-**Run Wallet encryption**
+>"docker build -t AutoRestake .
 
->run "node encryptKey.js"
+*Run your Docker ContainerencryptKey.js and dont Forget to pass your Password from the env File*
 
-**Build your Docker Container**
-
->"docker build -t AutoRestake ."
-
-**Run your Docker ContainerencryptKey.js**
-
->"docker run AutoRestake"
-
+>docker run AutoRestake
   
 # Info 
 
