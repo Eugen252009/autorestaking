@@ -14,7 +14,7 @@ Katana Staking claim: **WIP**
 
 **clone Repository**
 
->git clone 
+>git clone https://github.com/Eugen252009/Axie-AXS-Restaking.git
 
 **Import your wallet in the "encryptKey.js" file**
 
