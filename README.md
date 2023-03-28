@@ -4,12 +4,6 @@
 
   This is a Docker Container for Automatic restaking of staking rewards.
 
-# Future Implementations:
-
-Land Staking claim: **WIP**
-
-Katana Staking claim: **WIP**
-
  # Installation Guide:
 
 *clone Repository*
