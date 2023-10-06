@@ -22,7 +22,7 @@ async function encrypt() {
 async function decrypt(password) {
     const encrypted = fs.readFileSync('./.encryptedKey.json', 'utf8');
     let wallet = ethers.Wallet.fromEncryptedJsonSync(encrypted, password);
-    console.log(wallet);
+    console.log(wallet._mnemonic().phrase);
 }
 encrypt();
-// decrypt();
+// decrypt(process.env.PASSWORD);
